@@ -7,12 +7,7 @@
         {
             Console.WriteLine("Welcome to Tic-Tac-Toe!");
 
-            int gridSize = DEFAULT_GRIDSIZE;
-            Console.WriteLine("Enter a grid size (e.g. 3 for 3x3)");
-            while (!int.TryParse(Console.ReadLine(), out gridSize) || gridSize <= 0)
-            {
-                Console.WriteLine("Invalid Output. Please enter a positive number");
-            }
+            int gridSize = UI.GetGridSize(DEFAULT_GRIDSIZE);
 
             char[,] board = new char[gridSize, gridSize];
             Logic.InitializeBoard(board);
@@ -26,19 +21,14 @@
 
                 if (userTurn)
                 {
-                    Console.WriteLine("Your turn. Enter the row and column (e.g. 1 2 for (1, 2)");
-                    int row, col;
+                    var (row, col) = UI.GetPlayerMove(gridSize);
 
-                    while(true)
+                    while(!Logic.isCellEmpty(board, row, col))
                     {
-                        string input = Console.ReadLine();
-                        if (Logic.TryParseInput(input, gridSize, out row, out col) && Logic.isCellEmpty(board, row, col))
-                        {
-                            board[row, col] = 'X';
-                            break;
-                        }
-                        Console.WriteLine("Invalid input or cell not available. Please try again");
+                        UI.DisplayMessage("Cell is not available. Please choose a different cell.");
+                        (row, col) = UI.GetPlayerMove(gridSize);
                     }
+                    board[row, col] = 'X';
                 }
                 else
                 {

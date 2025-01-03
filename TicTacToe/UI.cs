@@ -34,5 +34,44 @@ namespace TicTacToe
                 }
             }
         }
+
+        public static void DisplayMessage(string message)
+        {
+            Console.WriteLine(message);
+        }
+
+        public static string ReadInput()
+        {
+            return Console.ReadLine();
+        }
+
+        public static int GetGridSize(int defaultSize)
+        {
+            DisplayMessage($"Enter grid size (e.g {defaultSize} for {defaultSize} x {defaultSize}): ");
+            while (true)
+            {
+                if (int.TryParse(ReadInput(), out int gridSize) && gridSize > 0)
+                {
+                    return gridSize;
+                }
+
+                DisplayMessage("Invalid input. Please enter a positive number.");
+            }
+        }
+
+        public static (int row, int col) GetPlayerMove(int gridSize)
+        {
+            DisplayMessage("Your turn. Enter row and columm (e.g. 1 2 for (1, 2)):");
+
+            while (true)
+            {
+                string input = ReadInput();
+                if (Logic.TryParseInput(input, gridSize, out int row, out int col))
+                {
+                    return (row, col);
+                }
+                DisplayMessage("Invalid input. Please enter a valid row and column.");
+            }
+        }
     }
 }
