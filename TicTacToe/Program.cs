@@ -33,7 +33,7 @@
                 else
                 {
                     Console.WriteLine("AI's turn...");
-                    Logic.AIMove(board);
+                    Logic.HandleAIMove(board);
                 }
 
                 if (Logic.CheckWin(board, userTurn ?  Logic.SYMBOL_PLAYER : Logic.SYMBOL_AI))

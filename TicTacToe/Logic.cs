@@ -62,7 +62,7 @@ namespace TicTacToe
         /// Find all the empty cells and select one randomly
         /// </summary>
         /// <param name="board"></param>
-        public static void AIMove(char[,] board)
+        public static void HandleAIMove(char[,] board)
         {
             Random random = new Random();
             List<(int row, int col)> emptyCells = new List<(int, int)>();
