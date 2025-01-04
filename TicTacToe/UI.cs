@@ -66,7 +66,7 @@ namespace TicTacToe
             while (true)
             {
                 string input = ReadInput();
-                if (Logic.TryParseInput(input, gridSize, out int row, out int col))
+                if (Logic.ValidateUserInput(input, gridSize, out int row, out int col))
                 {
                     return (row, col);
                 }

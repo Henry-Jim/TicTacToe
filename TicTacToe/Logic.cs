@@ -34,7 +34,7 @@ namespace TicTacToe
         /// <param name="row"></param>
         /// <param name="col"></param>
         /// <returns>true if input is valid</returns>
-        public static bool TryParseInput(string input, int gridSize, out int row, out int col)
+        public static bool ValidateUserInput(string input, int gridSize, out int row, out int col)
         {
             row = col = -1; // Default values which would be replaced by valid inputs
             string[] parts = input.Split(' '); // Splits input (e.g. 1 2) into two parts
