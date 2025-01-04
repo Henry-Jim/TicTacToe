@@ -8,6 +8,9 @@ namespace TicTacToe
 {
     internal class Logic
     {
+        public const char SYMBOL_PLAYER = 'X';
+        public const char SYMBOL_AI = 'O';
+
         /// <summary>
         /// Initializes board with empty cells
         /// </summary>
@@ -80,7 +83,7 @@ namespace TicTacToe
             if (emptyCells.Count > 0)
             {
                 var randomCell = emptyCells[random.Next(emptyCells.Count)];
-                board[randomCell.row, randomCell.col] = 'O';
+                board[randomCell.row, randomCell.col] = SYMBOL_AI;
             }
         }
 

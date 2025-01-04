@@ -36,7 +36,7 @@
                     Logic.AIMove(board);
                 }
 
-                if (Logic.CheckWin(board, userTurn ?  'X' : 'O'))
+                if (Logic.CheckWin(board, userTurn ?  Logic.SYMBOL_PLAYER : Logic.SYMBOL_AI))
                 {
                     UI.DisplayBoard(board);
                     Console.WriteLine(userTurn ? "You win!" : "AI wins!");
