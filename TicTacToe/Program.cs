@@ -28,7 +28,7 @@
                         UI.DisplayMessage("Cell is not available. Please choose a different cell.");
                         (row, col) = UI.GetPlayerMove(gridSize);
                     }
-                    board[row, col] = Constants.SYMBOL_PLAYER;
+                    board[row, col] = Constants.SYMBOL_PLAYER; // changed to const
                 }
                 else
                 {
