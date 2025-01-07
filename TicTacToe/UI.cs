@@ -30,7 +30,7 @@ namespace TicTacToe
                 Console.WriteLine();
                 if (i < gridSize - 1)
                 {
-                    Console.WriteLine(new string('-', gridSize * 4 - 3));
+                    Console.WriteLine(new string('-', gridSize * Constants.CELL_WIDTH_WITH_SEPARATOR - Constants.FINAL_COLUMN_ADJUSTMENT));
                 }
             }
         }
