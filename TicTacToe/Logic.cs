@@ -8,6 +8,7 @@ namespace TicTacToe
 {
     internal class Logic
     {
+        public static readonly Random random = new Random();
 
         /// <summary>
         /// Initializes board with empty cells
@@ -62,7 +63,6 @@ namespace TicTacToe
         /// <param name="board"></param>
         public static void HandleAIMove(char[,] board)
         {
-            Random random = new Random();
             List<(int row, int col)> emptyCells = new List<(int, int)>();
 
             // Add all the empty cells to the list for selection
