@@ -21,7 +21,7 @@ namespace TicTacToe
             {
                 for (int j = 0; j < gridSize; j++)
                 {
-                    Console.Write(board[i, j] == '\0' ? '.' : board[i, j]); // If the cell is empty display '.' to indicate availability, otherwise display either X or O.
+                    Console.Write(board[i, j] == Constants.EMPTY_CELL ? '.' : board[i, j]); // If the cell is empty display '.' to indicate availability, otherwise display either X or O.
                     if (j < gridSize - 1)
                     {
                         Console.Write(" | ");

@@ -19,7 +19,7 @@ namespace TicTacToe
             {
                 for (int j = 0; j < board.GetLength(1); j++)
                 {
-                    board[i, j] = '\0'; // Empty cell
+                    board[i, j] = Constants.EMPTY_CELL;
                 }
             }
         }
@@ -53,7 +53,7 @@ namespace TicTacToe
         /// <returns>true if cell is empty</returns>
         public static bool isCellEmpty(char[,] board, int row, int col)
         {
-            return board[row, col] == '\0';
+            return board[row, col] == Constants.EMPTY_CELL;
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace TicTacToe
             {
                 for (int j = 0; j < board.GetLength(1); j++)
                 {
-                    if (board[i, j] == '\0')
+                    if (board[i, j] == Constants.EMPTY_CELL)
                     {
                         emptyCells.Add((i, j));
                     }
@@ -132,7 +132,7 @@ namespace TicTacToe
         {
             foreach (var cell in board)
             {
-                if (cell == '\0') return false;
+                if (cell == Constants.EMPTY_CELL) return false;
             }
             return true;
         }
