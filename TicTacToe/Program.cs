@@ -5,7 +5,7 @@
         const int DEFAULT_GRIDSIZE = 3;
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Tic-Tac-Toe!");
+            UI.DisplayMessage("Welcome to Tic-Tac-Toe!");
 
             int gridSize = UI.GetGridSize(Constants.DEFAULT_GRIDSIZE);
 
@@ -32,27 +32,27 @@
                 }
                 else
                 {
-                    Console.WriteLine("AI's turn...");
+                    UI.DisplayMessage("AI's turn...");
                     Logic.HandleAIMove(board);
                 }
 
                 if (Logic.CheckWin(board, userTurn ?  Constants.SYMBOL_PLAYER : Constants.SYMBOL_AI))
                 {
                     UI.DisplayBoard(board);
-                    Console.WriteLine(userTurn ? "You win!" : "AI wins!");
+                    UI.DisplayMessage(userTurn ? "You win!" : "AI wins!");
                     gameOngoing = false;
                 }
                 else if (Logic.CheckTie(board))
                 {
                     UI.DisplayBoard(board);
-                    Console.WriteLine("It's a tie!");
+                    UI.DisplayMessage("It's a tie!");
                     gameOngoing = false;
                 }
 
                 userTurn = !userTurn; // Switch turns
             }
 
-            Console.WriteLine("Game Over!");
+            UI.DisplayMessage("Game Over!");
         }
     }
 }
