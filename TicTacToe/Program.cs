@@ -7,7 +7,7 @@
         {
             Console.WriteLine("Welcome to Tic-Tac-Toe!");
 
-            int gridSize = UI.GetGridSize(DEFAULT_GRIDSIZE);
+            int gridSize = UI.GetGridSize(Constants.DEFAULT_GRIDSIZE);
 
             char[,] board = new char[gridSize, gridSize];
             Logic.InitializeBoard(board);
@@ -28,7 +28,7 @@
                         UI.DisplayMessage("Cell is not available. Please choose a different cell.");
                         (row, col) = UI.GetPlayerMove(gridSize);
                     }
-                    board[row, col] = 'X';
+                    board[row, col] = Constants.SYMBOL_PLAYER;
                 }
                 else
                 {
@@ -36,7 +36,7 @@
                     Logic.HandleAIMove(board);
                 }
 
-                if (Logic.CheckWin(board, userTurn ?  Logic.SYMBOL_PLAYER : Logic.SYMBOL_AI))
+                if (Logic.CheckWin(board, userTurn ?  Constants.SYMBOL_PLAYER : Constants.SYMBOL_AI))
                 {
                     UI.DisplayBoard(board);
                     Console.WriteLine(userTurn ? "You win!" : "AI wins!");
